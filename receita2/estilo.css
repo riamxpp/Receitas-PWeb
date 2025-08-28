@@ -1,0 +1,21 @@
+p.verso {
+  color: rgb(69, 168, 255)
+}
+
+p.mote { 
+  color: red
+}
+
+a:visited {
+  color: rgb(64, 255, 0);
+}
+
+.poeta {
+  width: 150px;
+  display: inline-block;
+}
+
+.poeta img {
+  border-radius: 50%;
+  width: 100%;
+}

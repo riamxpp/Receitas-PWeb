@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>   
+   <head>
+      <meta charset="UTF-8">      
+
+      <style>
+        .box {
+          width: 200px;
+          height: 100px;
+          background: tomato;
+          margin: 10px;
+          padding: 10px;
+          opacity: 1;
+          transition: opacity 0.8s ease; /* suavidade */
+        }
+      </style>
+   </head>
+   <body>
+
+      <div class="box" id="meuAmor">Carregando cervejas...</div>   
+      <div>
+        <button id="botaoCarregar">Carregando cervejas...</button></div>   
+      </div>           
+   </body>   
+    <script>
+      function carregarDiv(){
+        existeH1 = document.querySelector("h1")
+        let div = document.getElementById("meuAmor")
+
+        if (existeH1) {
+          div.innerHTML = `Carregando cervejas`
+        }else {
+          div.innerHTML = `<h1 class="titulo">Guinness</h1>`
+        } 
+      }
+
+      let botao = document.getElementById("botaoCarregar")
+      botao.addEventListener("click", carregarDiv)          
+    </script>
+</html>
