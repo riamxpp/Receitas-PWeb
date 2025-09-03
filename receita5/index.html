@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>   
+   <head>
+      <meta charset="UTF-8">      
+      <style>
+         .embaralhar {
+            color: #333;
+            padding: 15px 10px;
+            border-radius: 4x;
+            background-color: beige;
+            cursor: pointer;
+         }
+      </style>
+   </head>
+   
+   <body>
+      <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+      <div id="meu amor"></div>            
+   </body>   
+   
+   <script>
+      let cervejas = ["Guiness", "Desperados", "Becks"]
+      
+      function transformar(item){
+         return `<h1>${item}</h1>`
+      }
+
+      const renderizarCervejas = (cervs) => {
+        const div = document.getElementById("meu amor")
+        const cervejasHtml = cervs.map((item) => `<h1>${item}</h1>`).join("\n")
+        div.innerHTML = cervejasHtml
+      }
+
+      const carregarDiv = (cervs) => {
+        const div = document.getElementById("meu amor")
+
+        div.innerHTML = `
+          ${cervs.map((item) => `<h1>${item}</h1>`).join("\n")}
+          <button class="embaralhar">Embaralhar</button>
+        `
+        // adiciona evento no botão
+        document.querySelector('.embaralhar')
+          .addEventListener("click", () => {
+            cervs.sort(() => Math.random() - 0.5);
+            renderizarCervejas(cervs)
+            div.innerHTML += `<button class="embaralhar">Embaralhar</button>`
+            document.querySelector('.embaralhar')
+              .addEventListener("click", () => embaralharNomes(cervs))
+        })
+        
+        const embaralharNomes = (lista) => {
+          lista.sort(() => Math.random() - 0.5);
+          carregarDiv(lista)
+        }
+      }
+      
+      let botao = document.getElementById("botaoCarregar")
+      botao.addEventListener("click", () => carregarDiv(cervejas))                 
+   </script>
+</html>
